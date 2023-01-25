@@ -1,0 +1,81 @@
+<html> 
+<head>
+    <title>Greeting Message</title> 
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Pinyon Script">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Sofia Sans Condensed">
+    <style>
+#em {
+    font-family: 'Pinyon Script', serif;
+    font-size: xx-large;
+    font-weight:  bold;
+    color: #f1e3f3;
+    padding: 5px;
+    text-align: center;
+    line-height: 1.5;
+    border:  ridge thick #6c92b6;
+    background:  #5db7de;
+}
+#lbl {
+    width:  100%;
+    height:  fit-content;
+}
+#date{
+    font-size:medium;
+    font-family:  'Sofia Sans Condensed';
+}
+body{
+    background-color: #f1e3f3;
+}
+    </style>
+</head>
+<body>
+    <div id="em">
+        <div id="lbl"></div>
+    </div>
+</body>
+
+<script>
+    var weekday = new Array(7);
+    weekday[0] = "Sunday";
+    weekday[1] = "Monday";
+    weekday[2] = "Tuesday";
+    weekday[3] = "Wednesday";
+    weekday[4] = "Thursday";
+    weekday[5] = "Friday";
+    weekday[6] = "Saturday";
+
+    var monthWritten = new Array(12);
+    monthWritten[0]= "January";
+    monthWritten[1]= "February";
+    monthWritten[2]= "March";
+    monthWritten[3]= "April";
+    monthWritten[4]= "May";
+    monthWritten[5]= "June";
+    monthWritten[6]= "July";
+    monthWritten[7]= "August";
+    monthWritten[8]= "September";
+    monthWritten[9]= "October";
+    monthWritten[10]= "November";
+    monthWritten[11]= "December";
+
+    
+    var today = new Date();
+    var hrs = today.getHours();
+    var dayOfWeek = weekday[today.getDay()];
+    var date = dayOfWeek+" " + monthWritten[(today.getMonth()+1)] + " " + today.getDate() +', '+today.getFullYear()  ;
+
+    var greet;
+
+    if (hrs < 12)
+        greet = 'Good Morning Love  ';
+    else if (hrs >= 12 && hrs <= 17)
+        greet = 'Good Afternoon Love  ';
+    else if (hrs >= 17 && hrs <= 24)
+        greet = 'Good Evening Love  ';
+
+    document.getElementById('lbl').innerHTML =
+        greet+=`<div id="date"> It's ${date}</div>`;
+</script> 
+</html>
